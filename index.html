@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Eerie Please</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      background-color: #000;
+      font-family: 'Amatic SC', cursive;
+      color: #00ff00;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      height: 100vh;
+      overflow: hidden;
+    }
+    nav {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      gap: 3rem;
+      padding: 1rem;
+      position: absolute;
+      top: 0;
+    }
+    nav a {
+      color: #00ff00;
+      text-decoration: none;
+      font-size: 2rem;
+    }
+    main {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin-top: 8rem;
+    }
+    .logo {
+      width: 300px;
+      height: auto;
+    }
+    .tagline {
+      margin-top: 2rem;
+      font-size: 2rem;
+      text-align: center;
+    }
+    .listen-button {
+      margin-top: 2rem;
+      border: 2px solid #00ff00;
+      padding: 1rem 2rem;
+      color: #00ff00;
+      background: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+    .listen-button:hover {
+      background-color: #003300;
+    }
+    .newsletter {
+      margin-top: 3rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .newsletter input[type="email"] {
+      padding: 0.5rem;
+      font-size: 1rem;
+      margin-top: 1rem;
+      border: 1px solid #00ff00;
+      background: black;
+      color: #00ff00;
+    }
+    .newsletter button {
+      margin-top: 1rem;
+      border: 2px solid #00ff00;
+      padding: 0.5rem 1rem;
+      color: #00ff00;
+      background: none;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="tour.html">tour</a>
+    <a href="contact.html">contact</a>
+  </nav>
+  <main>
+    <img class="logo" src="logo.gif" alt="Eerie Please Logo" />
+    <div class="tagline">surrender to thrilling temptations</div>
+    <a class="listen-button" href="https://linktr.ee/YOURBAND" target="_blank">listen deeply</a>
+    <div class="newsletter">
+      <div>receive letter from eerie, with love</div>
+      <input type="email" placeholder="your email" />
+      <button>subscribe</button>
+    </div>
+  </main>
+</body>
+</html>
