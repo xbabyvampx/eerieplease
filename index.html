@@ -6,120 +6,174 @@
   <title>Eerie Please</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.cdnfonts.com/css/amador" rel="stylesheet">
- <style>
-  @font-face {
-    font-family: 'Amador';
-    src: url('AmadorW01-Regular.woff2') format('woff2'),
-         url('AmadorW01-Regular.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-  }
- body {
-  margin: 0;
-  background-color: #000;
-  font-family: 'Amador', serif;
-  color: #00ff00;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  min-height: 100vh;
-  overflow-x: hidden;
-  overflow-y: auto;
-}
-  nav {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    gap: 3rem;
-    padding: 1rem;
-    position: fixed;
-    top: 0;
-    z-index: 100;
-    background-color: rgba(0,0,0,0.7);
-  }
-  nav a {
-    color: #00ff00;
-    text-decoration: none;
-    font-size: 2rem;
-  }
- main {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  padding-top: 5rem;
-  padding-bottom: 2rem;
-  width: 100%;
-  max-width: 600px;
-  height: 100vh;
-  box-sizing: border-box;
-}
-  .logo {
-    width: 600px;
-    height: auto;
-    margin-bottom: 1.5rem;
-    max-width: 90%;
-  }
-  .tagline {
-    margin-bottom: 2rem;
-    font-size: 1.5rem;
-    text-align: center;
-  }
-  .listen-button {
-    border: 2px solid #00ff00;
-    padding: 1rem 2rem;
-    color: #00ff00;
-    background: none;
-    font-size: 1.5rem;
-    cursor: pointer;
-    transition: 0.3s ease;
-    text-decoration: none;
-    display: inline-block;
-  }
-  .listen-button:hover {
-    background-color: #003300;
-  }
-  .main-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  .eerie-message {
-    font-size: 1.3rem;
-    margin-top: auto;
-  }
-  .newsletter-section {
-    padding: 3rem 0;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  .newsletter {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  .newsletter input[type="email"] {
-    padding: 0.5rem;
-    font-size: 1rem;
-    margin-top: 1rem;
-    border: 1px solid #00ff00;
-    background: black;
-    color: #00ff00;
-  }
-  .newsletter button {
-    margin-top: 1rem;
-    border: 2px solid #00ff00;
-    padding: 0.5rem 1rem;
-    color: #00ff00;
-    background: none;
-    font-size: 1rem;
-    cursor: pointer;
-  }
-</style>
+  <link href="https://fonts.cdnfonts.com/css/amador" rel="stylesheet">
+  <style>
+    @font-face {
+      font-family: 'Amador';
+      src: url('AmadorW01-Regular.woff2') format('woff2'),
+           url('AmadorW01-Regular.woff') format('woff');
+      font-weight: normal;
+      font-style: normal;
+    }
+    body {
+      margin: 0;
+      background-color: #000;
+      font-family: 'Amador', serif;
+      color: #00ff00;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      min-height: 100vh;
+      overflow-x: hidden;
+      overflow-y: auto;
+    }
+    nav {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      gap: 3rem;
+      padding: 1rem;
+      position: fixed;
+      top: 0;
+      z-index: 100;
+      background-color: rgba(0,0,0,0.7);
+    }
+    nav a {
+      color: #00ff00;
+      text-decoration: none;
+      font-size: 2rem;
+    }
+    main {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 5rem;
+      padding-bottom: 2rem;
+      width: 100%;
+      max-width: 600px;
+      height: 100vh;
+      box-sizing: border-box;
+    }
+    .logo {
+      width: 600px;
+      height: auto;
+      margin-bottom: 1.5rem;
+      max-width: 90%;
+    }
+    .tagline {
+      margin-bottom: 2rem;
+      font-size: 1.5rem;
+      text-align: center;
+    }
+    .listen-button {
+      border: 2px solid #00ff00;
+      padding: 1rem 2rem;
+      color: #00ff00;
+      background: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      transition: 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .listen-button:hover {
+      background-color: #003300;
+    }
+    .main-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .eerie-message {
+      font-size: 1.3rem;
+      margin-top: auto;
+    }
+    .newsletter-section {
+      padding: 3rem 0;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    /* Override Mailchimp's default styles */
+    #mc_embed_signup {
+      background: transparent !important;
+      font-family: 'Amador', serif !important;
+      width: 300px !important;
+      margin: 0 auto;
+    }
+    #mc_embed_signup form {
+      padding: 0 !important;
+    }
+    #mc_embed_signup .indicates-required {
+      display: none !important;
+    }
+    #mc_embed_signup .mc-field-group {
+      padding-bottom: 0 !important;
+      min-height: auto !important;
+      width: 100% !important;
+    }
+    #mc_embed_signup .mc-field-group label {
+      display: none !important;
+    }
+    #mc_embed_signup input.email {
+      padding: 0.5rem !important;
+      font-size: 1rem !important;
+      margin: 0 !important;
+      border: 1px solid #00ff00 !important;
+      background: black !important;
+      color: #00ff00 !important;
+      width: 100% !important;
+      border-radius: 0 !important;
+      height: auto !important;
+      font-family: 'Amador', serif !important;
+    }
+    #mc_embed_signup .button {
+      margin-top: 1rem !important;
+      border: 2px solid #00ff00 !important;
+      padding: 0.5rem 1rem !important;
+      color: #00ff00 !important;
+      background: none !important;
+      font-size: 1rem !important;
+      cursor: pointer !important;
+      width: auto !important;
+      border-radius: 0 !important;
+      height: auto !important;
+      line-height: normal !important;
+      text-transform: lowercase !important;
+      font-family: 'Amador', serif !important;
+      font-weight: normal !important;
+    }
+    #mc_embed_signup .button:hover {
+      background-color: #003300 !important;
+    }
+    #mc_embed_signup div.response {
+      color: #00ff00 !important;
+      font-weight: normal !important;
+      margin: 1em 0 !important;
+      padding: 0 !important;
+      font-family: 'Amador', serif !important;
+    }
+    #mc_embed_signup div#mce-responses {
+      margin: 0 !important;
+      padding: 0 !important;
+      width: 100% !important;
+    }
+    #mc_embed_signup p {
+      display: none !important;
+    }
+    #mc_embed_signup .optionalParent {
+      margin: 0 !important;
+    }
+    #mc_embed_signup .clear {
+      clear: both;
+      display: flex;
+      justify-content: center;
+    }
+  </style>
 </head>
 <body>
   <nav>
@@ -137,10 +191,34 @@
     <div class="eerie-message">from eerie, with love</div>
   </main>
   <div class="newsletter-section">
-    <div class="newsletter">
-      <input type="email" placeholder="your email" />
-      <button>subscribe</button>
+    <!-- Begin Mailchimp Signup Form -->
+    <div id="mc_embed_signup">
+      <form action="https://spotify.us21.list-manage.com/subscribe/post?u=0361f4e821f08a484199ffd41&amp;id=692fff8e43&amp;f_id=001140e6f0" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank">
+        <div id="mc_embed_signup_scroll">
+          <div class="mc-field-group">
+            <input type="email" name="EMAIL" class="required email" id="mce-EMAIL" required="" value="" placeholder="your email">
+          </div>
+          <div id="mce-responses" class="clear foot">
+            <div class="response" id="mce-error-response" style="display: none;"></div>
+            <div class="response" id="mce-success-response" style="display: none;"></div>
+          </div>
+          <div aria-hidden="true" style="position: absolute; left: -5000px;">
+            <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups -->
+            <input type="text" name="b_0361f4e821f08a484199ffd41_692fff8e43" tabindex="-1" value="">
+          </div>
+          <div class="optionalParent">
+            <div class="clear foot">
+              <input type="submit" name="subscribe" id="mc-embedded-subscribe" class="button" value="subscribe">
+            </div>
+          </div>
+        </div>
+      </form>
     </div>
+    <!-- End Mailchimp Signup Form -->
   </div>
+  
+  <!-- Mailchimp JavaScript -->
+  <script type="text/javascript" src="//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js"></script>
+  <script type="text/javascript">(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[1]='FNAME';ftypes[1]='text';fnames[2]='LNAME';ftypes[2]='text';fnames[3]='ADDRESS';ftypes[3]='address';fnames[4]='PHONE';ftypes[4]='phone';}(jQuery));var $mcj = jQuery.noConflict(true);</script>
 </body>
 </html>
