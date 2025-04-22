@@ -2,72 +2,141 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Contact - Eerie Please</title>
+  <title>Tour - Eerie Please</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-    @font-face {
-      font-family: 'Amador';
-      src: url('./AmadorW01-Regular.woff2') format('woff2'),
-           url('./AmadorW01-Regular.woff') format('woff');
-      font-weight: normal;
-      font-style: normal;
-    }
+  @font-face {
+    font-family: 'Amador';
+    src: url('./AmadorW01-Regular.woff2') format('woff2'),
+         url('./AmadorW01-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+  }
 
-    body {
-      background-color: black;
-      color: #00ff00;
-      font-family: 'Amador', serif;
-      text-align: center;
-      margin: 5vh auto 0;
-      padding: 0 1rem;
-      overflow: hidden;
-    }
+  body {
+    background-color: black;
+    color: #00ff00;
+    font-family: 'Amador', serif;
+    text-align: center;
+    margin: 5vh auto 0;
+    padding: 0 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 
+  h1 {
+    font-size: 8vw;
+    margin-bottom: 1rem;
+  }
+
+  p {
+    font-size: 5vw;
+    margin: 0.5rem 0 2rem;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 300px;
+  }
+
+  input, button {
+    margin-top: 1rem;
+    padding: 0.8rem;
+    background: black;
+    color: #00ff00;
+    border: 1px solid #00ff00;
+    font-family: 'Amador', serif;
+    font-size: 4vw;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  input::placeholder {
+    color: #00ff00;
+    opacity: 0.7;
+  }
+
+  button {
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+
+  button:hover {
+    background-color: #003300;
+  }
+
+  .message {
+    margin-top: 1rem;
+    color: #00ff00;
+    display: none;
+    font-size: 4vw;
+  }
+
+  @media (min-width: 600px) {
     h1 {
-      font-size: 10vw;
-      position: relative;
-      animation: glitch 2s infinite;
+      font-size: 3rem;
     }
 
     p {
-      font-size: 5vw;
-      animation: flicker 3s infinite;
-      word-wrap: break-word;
+      font-size: 1.8rem;
     }
 
-    @media (min-width: 600px) {
-      h1 {
-        font-size: 3rem;
-      }
-
-      p {
-        font-size: 1.8rem;
-      }
+    input, button {
+      font-size: 1rem;
     }
 
-    /* Glitch keyframes */
-    @keyframes glitch {
-      0% { text-shadow: 2px 0 red, -2px 0 blue; }
-      20% { text-shadow: -2px -2px red, 2px 2px blue; }
-      40% { text-shadow: 2px 2px red, -2px -2px blue; }
-      60% { text-shadow: -2px 2px red, 2px -2px blue; }
-      80% { text-shadow: 2px -2px red, -2px 2px blue; }
-      100% { text-shadow: none; }
+    .message {
+      font-size: 1rem;
     }
-
-    /* Flicker animation for email */
-    @keyframes flicker {
-      0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
-        opacity: 1;
-      }
-      20%, 24%, 55% {
-        opacity: 0;
-      }
-    }
+  }
   </style>
 </head>
 <body>
-  <h1>contact</h1>
-  <p>eerieplease@gmail.com</p>
+  <h1>coming soon</h1>
+  <p>𓆩want to go to an eerie show?𓆪</p>
+  
+  <form id="locationForm" action="https://formspree.io/f/xwpokpbb" method="POST">
+    <input type="text" name="location" placeholder="where are you?" required />
+    <input type="email" name="email" placeholder="what's your email?" required />
+    <input type="hidden" name="subscribe" value="yes" />
+    <button type="submit">send</button>
+    <p id="successMessage" class="message">thanks! we'll let you know about shows in your area.</p>
+  </form>
+
+  <script>
+    document.getElementById('locationForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      
+      const form = this;
+      const formData = new FormData(form);
+      const successMessage = document.getElementById('successMessage');
+      
+      fetch(form.action, {
+        method: form.method,
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      })
+      .then(response => {
+        if (response.ok) {
+          form.reset();
+          successMessage.style.display = 'block';
+          setTimeout(() => {
+            successMessage.style.display = 'none';
+          }, 3000);
+        } else {
+          throw new Error('Form submission failed');
+        }
+      })
+      .catch(error => {
+        console.error('Error:', error);
+      });
+    });
+  </script>
 </body>
 </html>
