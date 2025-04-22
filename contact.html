@@ -20,15 +20,16 @@
       text-align: center;
       margin: 5vh auto 0;
       padding: 0 1rem;
+      overflow: hidden;
     }
 
     h1 {
       font-size: 10vw;
-      margin-bottom: 1rem;
     }
 
     p {
       font-size: 5vw;
+      animation: glitch 2s infinite;
       word-wrap: break-word;
     }
 
@@ -40,6 +41,16 @@
       p {
         font-size: 1.8rem;
       }
+    }
+
+    /* Glitch keyframes for email */
+    @keyframes glitch {
+      0% { text-shadow: 2px 0 red, -2px 0 blue; }
+      20% { text-shadow: -2px -2px red, 2px 2px blue; }
+      40% { text-shadow: 2px 2px red, -2px -2px blue; }
+      60% { text-shadow: -2px 2px red, 2px -2px blue; }
+      80% { text-shadow: 2px -2px red, -2px 2px blue; }
+      100% { text-shadow: none; }
     }
   </style>
 </head>
