@@ -62,10 +62,10 @@
   
   <form id="locationForm" action="https://formspree.io/f/xwpokpbb" method="POST">
     <input type="text" name="location" placeholder="where are you?" required />
+    <input type="email" name="email" placeholder="what's your email?" required />
     <input type="hidden" name="subscribe" value="yes" />
     <button type="submit">send</button>
-    <p id="successMessage" class="message">thanks! we'll let you know about shows in your area.
-  </div></p>
+    <p id="successMessage" class="message">thanks! we'll let you know about shows in your area.</p>
   </form>
 
   <script>
@@ -85,14 +85,8 @@
       })
       .then(response => {
         if (response.ok) {
-          // Show success message
           form.reset();
           successMessage.style.display = 'block';
-          
-          // Optional: Also submit to Mailchimp
-          submitToMailchimp(formData.get('location'));
-          
-          // Hide success message after 3 seconds
           setTimeout(() => {
             successMessage.style.display = 'none';
           }, 3000);
@@ -104,23 +98,6 @@
         console.error('Error:', error);
       });
     });
-    
-    // Function to also submit to Mailchimp (optional integration)
-    function submitToMailchimp(location) {
-      // This is a basic example - would need customization for your Mailchimp setup
-      const mailchimpURL = 'https://spotify.us21.list-manage.com/subscribe/post?u=0361f4e821f08a484199ffd41&id=692fff8e43&f_id=001140e6f0';
-      
-      const data = new FormData();
-      data.append('EMAIL', location + '@placeholder.com'); // This is just an example approach
-      data.append('b_0361f4e821f08a484199ffd41_692fff8e43', '');
-      
-      fetch(mailchimpURL, {
-        method: 'POST',
-        body: data,
-        mode: 'no-cors' // This is needed for cross-domain requests
-      });
-      // Note: This is a simplified example and may need adjustments
-    }
   </script>
 </body>
 </html>
