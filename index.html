@@ -15,7 +15,6 @@
     font-weight: normal;
     font-style: normal;
   }
-
  body {
   margin: 0;
   background-color: #000;
@@ -25,9 +24,9 @@
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  min-height: 100vh; /* Allows the body to expand if content exceeds viewport */
-  overflow-x: hidden; /* Prevents horizontal scrolling */
-  overflow-y: auto;   /* Enables vertical scrolling if needed */
+  min-height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
   nav {
     width: 100%;
@@ -35,41 +34,38 @@
     justify-content: center;
     gap: 3rem;
     padding: 1rem;
-    position: absolute;
+    position: fixed;
     top: 0;
+    z-index: 100;
+    background-color: rgba(0,0,0,0.7);
   }
-
   nav a {
     color: #00ff00;
     text-decoration: none;
     font-size: 2rem;
   }
-
  main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  padding-top: 10rem;
-  padding-bottom: 10rem;
+  justify-content: flex-start;
+  padding-top: 5rem;
   width: 100%;
   max-width: 600px;
+  height: 100vh;
 }
-
   .logo {
     width: 600px;
     height: auto;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
+    max-width: 90%;
   }
-
   .tagline {
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
     font-size: 1.5rem;
     text-align: center;
   }
-
   .listen-button {
-    margin-bottom: 3rem;
     border: 2px solid #00ff00;
     padding: 1rem 2rem;
     color: #00ff00;
@@ -77,19 +73,25 @@
     font-size: 1.5rem;
     cursor: pointer;
     transition: 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
   }
-
   .listen-button:hover {
     background-color: #003300;
   }
-
-  .newsletter {
-    margin-top: 2rem;
+  .newsletter-section {
+    margin-top: 5rem;
+    padding: 3rem 0;
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
   }
-
+  .newsletter {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
   .newsletter input[type="email"] {
     padding: 0.5rem;
     font-size: 1rem;
@@ -98,7 +100,6 @@
     background: black;
     color: #00ff00;
   }
-
   .newsletter button {
     margin-top: 1rem;
     border: 2px solid #00ff00;
@@ -116,16 +117,18 @@
     <a href="contact.html">contact</a>
   </nav>
   <main>
-   <img class="logo" src="logo.gif" alt="Eerie Please Logo" style="margin-bottom: 2rem;" />
-    <div class="tagline" style="margin-bottom: 3rem; font-size: 1.5rem;">surrender to thrilling temptations</div>
-<a class="listen-button" href="https://linktr.ee/eerieplease" target="_blank" style="margin-bottom: 5rem;">
-☠︎︎ ⋆₊ ♱ listen ♱ ₊⋆☠︎︎</a>
-
-<div class="newsletter">
-  <div style="font-size: 1.3rem;">from eerie, with love</div>
-  <input type="email" placeholder="your email" />
-  <button>subscribe</button>
-</div>
+   <img class="logo" src="logo.gif" alt="Eerie Please Logo" />
+    <div class="tagline">surrender to thrilling temptations</div>
+    <a class="listen-button" href="https://linktr.ee/eerieplease" target="_blank">
+      ☠︎︎ ⋆₊ ♱ listen ♱ ₊⋆☠︎︎
+    </a>
   </main>
+  <div class="newsletter-section">
+    <div class="newsletter">
+      <div style="font-size: 1.3rem;">from eerie, with love</div>
+      <input type="email" placeholder="your email" />
+      <button>subscribe</button>
+    </div>
+  </div>
 </body>
 </html>
