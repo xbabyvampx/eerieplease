@@ -3,25 +3,48 @@
 <head>
   <meta charset="UTF-8">
   <title>Contact - Eerie Please</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-     @font-face {
-  font-family: 'Amador';
-  src: url('./AmadorW01-Regular.woff2') format('woff2'),
-       url('./AmadorW01-Regular.woff') format('woff');
-  font-weight: normal;
-  font-style: normal;
-}
+    @font-face {
+      font-family: 'Amador';
+      src: url('./AmadorW01-Regular.woff2') format('woff2'),
+           url('./AmadorW01-Regular.woff') format('woff');
+      font-weight: normal;
+      font-style: normal;
+    }
+
     body {
       background-color: black;
       color: #00ff00;
-       font-family: 'Amador', serif;
+      font-family: 'Amador', serif;
       text-align: center;
-      margin-top: 5rem;
+      margin: 5vh auto 0;
+      padding: 0 1rem;
+    }
+
+    h1 {
+      font-size: 10vw;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      font-size: 5vw;
+      word-wrap: break-word;
+    }
+
+    @media (min-width: 600px) {
+      h1 {
+        font-size: 3rem;
+      }
+
+      p {
+        font-size: 1.8rem;
+      }
     }
   </style>
 </head>
 <body>
   <h1>contact</h1>
-  <p style="font-size: 1.8rem;">eerieplease@gmail.com</p>
+  <p>eerieplease@gmail.com</p>
 </body>
 </html>
