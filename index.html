@@ -97,14 +97,14 @@
       flex-direction: column;
       align-items: center;
     }
-    
+
     .heart-symbol {
       color: #00ff00;
       font-size: 1.5rem;
       margin-bottom: 0.5rem;
       text-align: center;
     }
-    
+
     /* Override Mailchimp's default styles */
     #mc_embed_signup {
       background: transparent !important;
@@ -180,6 +180,42 @@
       display: flex;
       justify-content: center;
     }
+
+    /* 👇 Mobile Adjustments */
+    @media (max-width: 600px) {
+      main {
+        height: 100svh;
+        padding-top: 4rem;
+        padding-bottom: 1rem;
+        justify-content: space-between;
+      }
+
+      .main-content {
+        flex-grow: 1;
+        justify-content: center;
+      }
+
+      .eerie-message {
+        margin-top: 0.5rem;
+        margin-bottom: 1.5rem;
+        font-size: 1.2rem;
+      }
+
+      .tagline {
+        font-size: 1.3rem;
+      }
+
+      .listen-button {
+        font-size: 1.2rem;
+        padding: 0.8rem 1.5rem;
+      }
+
+      .logo {
+        width: 100%;
+        max-width: 80%;
+        margin-bottom: 1rem;
+      }
+    }
   </style>
 </head>
 <body>
@@ -211,7 +247,6 @@
             <div class="response" id="mce-success-response" style="display: none;"></div>
           </div>
           <div aria-hidden="true" style="position: absolute; left: -5000px;">
-            <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups -->
             <input type="text" name="b_0361f4e821f08a484199ffd41_692fff8e43" tabindex="-1" value="">
           </div>
           <div class="optionalParent">
@@ -224,7 +259,7 @@
     </div>
     <!-- End Mailchimp Signup Form -->
   </div>
-  
+
   <!-- Mailchimp JavaScript -->
   <script type="text/javascript" src="//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js"></script>
   <script type="text/javascript">(function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[1]='FNAME';ftypes[1]='text';fnames[2]='LNAME';ftypes[2]='text';fnames[3]='ADDRESS';ftypes[3]='address';fnames[4]='PHONE';ftypes[4]='phone';}(jQuery));var $mcj = jQuery.noConflict(true);</script>
