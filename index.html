@@ -16,7 +16,7 @@
     font-style: normal;
   }
 
-  body {
+ body {
   margin: 0;
   background-color: #000;
   font-family: 'Amador', serif;
@@ -25,10 +25,10 @@
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  min-height: 100vh; /* changed from height */
-  overflow-x: hidden; /* allow vertical scrolling */
-  }
-
+  min-height: 100vh; /* Allows the body to expand if content exceeds viewport */
+  overflow-x: hidden; /* Prevents horizontal scrolling */
+  overflow-y: auto;   /* Enables vertical scrolling if needed */
+}
   nav {
     width: 100%;
     display: flex;
@@ -45,13 +45,13 @@
     font-size: 2rem;
   }
 
-  main {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin-top: 8rem;
-  }
+main {
+  display: block;
+  padding-top: 10rem;
+  padding-bottom: 10rem;
+  width: 100%;
+  max-width: 600px;
+}
 
   .logo {
     width: 350px;
