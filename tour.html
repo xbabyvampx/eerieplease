@@ -35,6 +35,10 @@
     margin: 0.5rem 0 2rem;
   }
 
+  .flicker {
+    animation: flicker 3s infinite;
+  }
+
   form {
     display: flex;
     flex-direction: column;
@@ -93,11 +97,20 @@
       font-size: 1rem;
     }
   }
+
+  @keyframes flicker {
+    0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+      opacity: 1;
+    }
+    20%, 24%, 55% {
+      opacity: 0;
+    }
+  }
   </style>
 </head>
 <body>
   <h1>coming soon</h1>
-  <p>𓆩want to go to an eerie show?𓆪</p>
+  <p class="flicker">𓆩want to go to an eerie show?𓆪</p>
   
   <form id="locationForm" action="https://formspree.io/f/xwpokpbb" method="POST">
     <input type="text" name="location" placeholder="where are you?" required />
