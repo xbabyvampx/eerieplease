@@ -12,7 +12,6 @@
       font-weight: normal;
       font-style: normal;
     }
-
     body {
       background-color: black;
       color: #00ff00;
@@ -21,28 +20,24 @@
       margin: 5vh auto 0;
       padding: 0 1rem;
       overflow: hidden;
+      cursor: none; /* Hide default cursor */
     }
-
     h1 {
       font-size: 10vw;
     }
-
     p {
       font-size: 5vw;
       animation: flicker 3s infinite;
       word-wrap: break-word;
     }
-
     @media (min-width: 600px) {
       h1 {
         font-size: 3rem;
       }
-
       p {
         font-size: 1.8rem;
       }
     }
-
     /* Flicker animation for email */
     @keyframes flicker {
       0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
@@ -52,11 +47,104 @@
         opacity: 0;
       }
     }
+    
+    /* Custom cursor styling */
+    .cursor {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      position: fixed;
+      pointer-events: none;
+      font-size: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #00ff00;
+      z-index: 9999;
+      transform: translate(-50%, -50%);
+      transition: transform 0.05s ease;
+    }
+      
+    .cursor-trail {
+      position: fixed;
+      pointer-events: none;
+      font-size: 14px;
+      color: rgba(0, 255, 0, 0.5);
+      z-index: 9998;
+    }
   </style>
 </head>
 <body>
+  <!-- Custom cursor elements -->
+  <div class="cursor">♱</div>
+  
   <h1>contact</h1>
   <p>eerieplease@gmail.com</p>
+  
+  <script>
+    // Custom cursor JavaScript
+    const cursor = document.querySelector('.cursor');
+    const maxTrails = 10;
+    const trails = [];
+    
+    // Create trail elements
+    for (let i = 0; i < maxTrails; i++) {
+      const trail = document.createElement('div');
+      trail.className = 'cursor-trail';
+      trail.innerHTML = '⫘';
+      trail.style.opacity = 1 - (i / maxTrails);
+      document.body.appendChild(trail);
+      trails.push({
+        element: trail,
+        x: 0,
+        y: 0
+      });
+    }
+    
+    // Update cursor position on mouse move
+    document.addEventListener('mousemove', (e) => {
+      cursor.style.left = e.clientX + 'px';
+      cursor.style.top = e.clientY + 'px';
+      
+      // Update trail positions with delay
+      setTimeout(() => {
+        // Shift positions in the trails array
+        for (let i = trails.length - 1; i > 0; i--) {
+          trails[i].x = trails[i-1].x;
+          trails[i].y = trails[i-1].y;
+        }
+        
+        // Set first trail position to current mouse position
+        trails[0].x = e.clientX;
+        trails[0].y = e.clientY;
+        
+        // Update all trail positions
+        trails.forEach((trail, index) => {
+          trail.element.style.left = trail.x + 'px';
+          trail.element.style.top = trail.y + 'px';
+        });
+      }, 50);
+    });
+    
+    // Make cursor slightly larger on clickable elements
+    const clickables = document.querySelectorAll('a, button, input');
+    clickables.forEach(element => {
+      element.addEventListener('mouseenter', () => {
+        cursor.style.transform = 'translate(-50%, -50%) scale(1.5)';
+      });
+      
+      element.addEventListener('mouseleave', () => {
+        cursor.style.transform = 'translate(-50%, -50%) scale(1)';
+      });
+    });
+    
+    // Make sure cursor is visible when page loads
+    document.addEventListener('DOMContentLoaded', () => {
+      cursor.style.opacity = 1;
+      trails.forEach(trail => {
+        trail.element.style.opacity = 0.5;
+      });
+    });
+  </script>
 </body>
 </html>
-
