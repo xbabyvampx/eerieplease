@@ -48,11 +48,13 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: space-between;
   padding-top: 5rem;
+  padding-bottom: 2rem;
   width: 100%;
   max-width: 600px;
   height: 100vh;
+  box-sizing: border-box;
 }
   .logo {
     width: 600px;
@@ -79,8 +81,16 @@
   .listen-button:hover {
     background-color: #003300;
   }
+  .main-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .eerie-message {
+    font-size: 1.3rem;
+    margin-top: auto;
+  }
   .newsletter-section {
-    margin-top: 5rem;
     padding: 3rem 0;
     width: 100%;
     display: flex;
@@ -117,15 +127,17 @@
     <a href="contact.html">contact</a>
   </nav>
   <main>
-   <img class="logo" src="logo.gif" alt="Eerie Please Logo" />
-    <div class="tagline">surrender to thrilling temptations</div>
-    <a class="listen-button" href="https://linktr.ee/eerieplease" target="_blank">
-      ☠︎︎ ⋆₊ ♱ listen ♱ ₊⋆☠︎︎
-    </a>
+    <div class="main-content">
+      <img class="logo" src="logo.gif" alt="Eerie Please Logo" />
+      <div class="tagline">surrender to thrilling temptations</div>
+      <a class="listen-button" href="https://linktr.ee/eerieplease" target="_blank">
+        ☠︎︎ ⋆₊ ♱ listen ♱ ₊⋆☠︎︎
+      </a>
+    </div>
+    <div class="eerie-message">from eerie, with love</div>
   </main>
   <div class="newsletter-section">
     <div class="newsletter">
-      <div style="font-size: 1.3rem;">from eerie, with love</div>
       <input type="email" placeholder="your email" />
       <button>subscribe</button>
     </div>
